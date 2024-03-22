@@ -1,0 +1,347 @@
+/* Paste your CSS styles here */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Dosis", sans-serif;
+    background-color: #262626;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.4),
+        rgba(0, 0, 0, 0.2),
+        rgba(0, 0, 0, 0.4)
+    ),
+    url(black.jpg) center no-repeat;
+}
+.logo {
+    display: flex;
+    position: relative;
+
+}
+
+.logo img  {
+    display: flex;
+    height: 70px;
+    padding: 33px ;
+}
+.logo h1{
+    display: flex;
+    position: relative;
+    top: 45px;
+    right: 25px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #c4c4c4;
+}
+span a {
+    position:absolute;
+    width:50%;
+    height:50%;
+    left:20px;
+    top:20px;
+    z-index:1;
+}
+
+.navbar {
+    width: 300px;
+    height: 100%;
+    background-color: #201f1f;
+    position: fixed;
+    top: 0;
+    right: -300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5% 0% 0% 5%;
+    transition: right 0.8s cubic-bezier(1, 0, 0, 1);
+}
+
+
+.change {
+    right: 0;
+}
+
+.hamburger-menu {
+    width: 35px;
+    height: 30px;
+    position: fixed;
+    top: 50px;
+    right: 50px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.line-1,
+.line-2,
+.line-3 {
+    width: 100%;
+    height: 3px;
+    background-color: rgb(255, 255, 255);
+    transition: all 0.8s;
+}
+
+.change .line-1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.change .line-2 {
+    display: none;
+}
+
+.change .line-3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.nav-list {
+    text-align: right;
+}
+
+.nav-item {
+    list-style: none;
+    margin: 25px;
+
+}
+
+.nav-link {
+    text-decoration: none;
+    font-size: 22px;
+    color: #eee;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    position: relative;
+    padding: 3px 0;
+}
+/*  todo list background */
+
+.todo_list{
+display: flex;
+color: #eee;
+background-color: #36363636;
+height: 80%;
+width: 80%;
+justify-content: center;
+position: relative;
+top: -40px ;
+right: -130Px;
+border-radius: 50px ;
+flex-direction: column;
+
+}
+
+/*  the tasks inside of the tido list contianor in the home work .. pages*/
+
+#list-container{
+    margin-top: -333px;
+}
+
+#list-container li {
+    list-style: none;
+    font-size: 20px;
+    padding: 12px 8px 12px 50px ;
+    margin-top: 13px;
+    user-select: none;
+    cursor: pointer;
+    position: relative  ;
+    background-color: #262626;
+    border-radius: 30px;
+    width: 750px;
+    left: 50px;
+}
+ 
+
+ #list-container li::before{
+    content: '';
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    border: 50%;
+    background-image: url(/todo/unchecked.png);
+    background-size: cover;
+    background-position: center;
+    top: 12px;
+    left: 8px;
+
+}
+#list-container li.checked{
+    color: rgb(81, 81, 81);
+    text-decoration: line-through;
+}
+#list-container li.checked::before{
+    background-image: url(/todo/checked.png);
+}
+/*/the task delit button/*/
+#list-container li span{
+    position: absolute;
+    right: 50px;
+}
+
+
+/*adding to dos button*/
+
+
+.adding_button h1{
+display: flex;
+font-size: 60px;
+justify-content: center;
+
+
+margin-left: 14px;
+
+
+}
+.adding_button button{
+    display: flex;
+    color: #eee;
+    background-color: #363636;
+    height: 70px;
+    width: 70px;
+    position: fixed;
+    bottom: 100px;
+    right: 200px;
+    border-radius: 35%;
+
+}
+
+.adding_button button:hover{
+
+box-shadow: 0 0 20px black;
+}
+
+
+/* the pop up window */
+        
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    z-index: 10;
+    background-color: rgb(60, 60, 60);
+    width: 500px;
+    max-width: 80%;
+}
+
+.modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+
+.modal-header .title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.modal-header .close-button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.modal-body {
+    padding: 10px 15px;
+}
+
+#overlay {
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+}
+
+#overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+
+/* add task the inside of the pop up model*/
+
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: dimgrey;
+    border-radius: 30px;
+    paddin-left 20px;
+    margin-bottom: 25px;
+    
+}
+
+input{
+    flex: 1;
+    border: none ;
+    background-color: transparent;
+    font-weight: 14px;
+    margin-left: 30px;
+}
+
+
+.add_task{
+    border: none;
+    outline: none;
+    padding: 16px 50px ;
+    background: #201c1c;
+    color: #363636;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 40px ;
+
+
+}
+
+
+
+
+
+.nav-link::before,.nav-link::after {
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: rgb(0, 0, 0);
+    position: absolute;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.5s;
+}
+
+.nav-link::after {
+    bottom: 0;
+    transform-origin: left;
+}
+
+.nav-link::before {
+    top: 0;
+    transform-origin: right;
+}
+
+.nav-link:hover::before,
+.nav-link:hover::after {
+    transform: scaleX(1);
+}
